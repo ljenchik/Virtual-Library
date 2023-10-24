@@ -1,5 +1,6 @@
 // import the Media class:
 const Media = require("./Media");
+const Music = require("./Music");
 
 // create your Book class:
 class Book extends Media {
@@ -21,10 +22,15 @@ class Book extends Media {
         return result;
     }
 
+    static calculateAverageRating(arr) {
+        return (
+            arr.reduce((acc, cur) => acc + cur.rating, 0) / arr.length
+        ).toFixed(1);
+    }
+
     summary() {
         return `Title: ${this.title}, Author: ${this.author}, Year: ${this.year}, Page Count: ${this.numPages}, Genre: ${this.genre}, Rating: ${this.rating}`;
     }
 }
-
 // don't change below
 module.exports = Book;
